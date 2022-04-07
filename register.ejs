@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="register.css" />
+    <title>アカウント作成</title>
+</head>
+<body>
+    <h1>アカウント作成</h1>
+    <form action="/register" method="post">
+        <div>
+            <label for="username">名前:</label><br>
+            <input type="text" name="username" id="username" placeholder="望月">
+        </div>
+        <div>
+            <label for="password">パスワード</label><br>
+            <input type="password" name="password" id="password" placeholder="パスワード">
+        </div>
+        <div>
+            <label for="phone">携帯番号</label><br>
+            <input type="phone" name="phone" id="phone" placeholder="99110090">
+        </div>
+        <div>
+            <label for="email">メールアドレス:</label><br>
+            <input type="email" name="email" id="email" placeholder="mochizuki123@yahoo.com">
+        </div>
+        <button class="button">登録</button>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            var form = $("<form/>", 
+                 {
+                     action:'/login',
+                     method: 'post'
+                }
+            );
+            form.append( 
+                $("<input>", 
+                    { type:'text', 
+                    placeholder:'お名前', 
+                    name:'username', 
+                    id: 'username'}
+                )
+            );
+            form.append('<div><div>');
+            form.append( 
+                $("<input>", 
+                    { type:'password', 
+                    placeholder:'パスワード', 
+                    autocomplete:'on',
+                    name:'password'}
+                )
+            );
+            form.append('<div><div>');
+
+            form.append( 
+                $("<input>", 
+                    { type:'submit',
+                        id: 'send_form', 
+                        value:'ログイン',
+                        class: "button",
+                        role: "button"}
+                        
+                )
+            );
+            $('body').append(form);
+            var toRegister = $("<form/>", 
+                 {
+                     action:'/register',
+                     method: 'get'
+                }
+            );
+            toRegister.append( 
+                $("<input>", 
+                    { type:'submit',
+                        id: 'linkToRegister', 
+                        value:'アカウント作成',
+                        class: "button",
+                        role: "button"}
+                        
+                )
+            );
+            $('body').append(toRegister);
+
+                        
+        })
+    </script>
+    <title>新規登録</title>
+</head> 
+<body>
+    <h1>ログイン</h1>
+    <script type="text/javascript">
+        $('#send_form').click(function() {
+            $('<form/>', {action: '/login', method: 'post'})
+            .append($('<input/>', {type: 'hidden', name: 'username', value: $('#username').val()}))
+            .append($('<input/>', {type: 'hidden', name: 'password', value: $('#password').val()}))
+            .appendTo(document.body)
+            .submit();
+        })
+    </script>
+
+</body>
+</html>
